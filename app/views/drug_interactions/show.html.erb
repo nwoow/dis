@@ -1,0 +1,42 @@
+<p>
+  <strong>ID:</strong>
+  <%= @drug_interaction.id %>
+</p>
+
+<p>
+  <strong>First Generic:</strong>
+  <%= Generic.where("id = ?", @drug_interaction.first_generic_id).pluck(:generic_name).first %>
+</p>
+
+<p>
+  <strong>Second Generic:</strong>
+  <%= Generic.where("id = ?", @drug_interaction.second_generic_id).pluck(:generic_name).first %>
+</p>
+
+<p>
+  <strong>Drug interaction text:</strong>
+  <%= @drug_interaction.drug_interaction_text %>
+</p>
+
+<p>
+  <strong>Data source data source:</strong>
+    <%=DataSource.where("id = ?", @drug_interaction.data_source_id).pluck(:data_source_name).first %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @drug_interaction.status %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @drug_interaction.created_at %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @drug_interaction.updated_at %>
+</p>
+
+<%= link_to 'Edit', edit_drug_interaction_path(@drug_interaction) %> |
+<%= link_to 'Back', drug_interactions_path %>

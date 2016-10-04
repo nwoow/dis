@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ID:</strong>
+  <%= @manufacturer.id %>
+</p>
+
+<p>
+  <strong>Manufacturer Name:</strong>
+  <%= @manufacturer.manufacturer_name %>
+</p>
+
+<p>
+  <strong>Short Name:</strong>
+  <%= @manufacturer.manufacturer_abbr %>
+</p>
+
+<p>
+  <strong>Address1:</strong>
+  <%= @manufacturer.address1 %>
+</p>
+
+<p>
+  <strong>Address2:</strong>
+  <%= @manufacturer.address2 %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= State.where("id = ?", @manufacturer.state_id).pluck(:state_name).first %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= City.where("id = ?", @manufacturer.city_id).pluck(:city_name).first %>
+</p>
+
+<p>
+  <strong>Pin:</strong>
+  <%= @manufacturer.pin %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @manufacturer.phone %>
+</p>
+
+<p>
+  <strong>Fax:</strong>
+  <%= @manufacturer.fax %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @manufacturer.email %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @manufacturer.website %>
+</p>
+
+<p>
+  <strong>Mobilephone:</strong>
+  <%= @manufacturer.mobilephone %>
+</p>
+
+<p>
+  <strong>Data Source:</strong>
+  <%= DataSource.where("id = ?", @manufacturer.data_source_id).pluck(:data_source_name).first %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @manufacturer.status %>
+</p>
+
+<%= link_to 'Edit', edit_manufacturer_path(@manufacturer) %> |
+<%= link_to 'Back', manufacturers_path %>

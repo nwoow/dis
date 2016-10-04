@@ -1,0 +1,17 @@
+<%= simple_form_for(@route) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :route_name ,label: 'Route Name', error: "Please enter a route name"%>
+    <%= f.input :route_abbr , label: 'Abbreviation',error: "Please enter an abbreviation"%>
+    <%= f.input :route_description , label: 'Description',error: "Please enter a description"%>
+    <%= f.input :data_source_id, label: 'Data Source', error: 'Please select a data source' do %>
+      <%= f.select :data_source_id, DataSource.all.map { |r| [r.data_source_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+    <!-- <%= f.input :status , label: 'Route Name',error: "status is mandatory"%> -->
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Save" %>
+  </div>
+<% end %>

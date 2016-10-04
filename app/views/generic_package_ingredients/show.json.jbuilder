@@ -1,0 +1,1 @@
+json.extract! @generic_package_ingredient, :id, :generic_package_ingredient_id, :generic_package_id, :ingredient_id, :ingredient_qty, :doseunits_doseunit_id, :data_source_data_source_id, :status, :created_at, :updated_at

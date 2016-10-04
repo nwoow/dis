@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ID:</strong>
+  <%= @generic_package_ingredient.id %>
+</p>
+
+<p>
+  <strong>Generic Package:</strong>
+  <%= GenericPackage.where ("id = ?", @generic_package_ingredient.generic_package_id).pluck (:generic_package_text).first %>
+</p>
+
+<p>
+  <strong>Ingredient:</strong>
+  <%= Ingredient.where ("id = ?", @generic_package_ingredient.ingredient_id).pluck (:ingredient_name).first %>
+</p>
+
+<p>
+  <strong>Ingredient qty:</strong>
+  <%= @generic_package_ingredient.ingredient_qty %>
+</p>
+
+<p>
+  <strong>Doseunits doseunit:</strong>
+  <%= Doseunit.where("id = ?", @generic_package_ingredient.data_source_id).pluck(:doseunit_name).first %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @generic_package_ingredient.status %>
+</p>
+
+<%= link_to 'Edit', edit_generic_package_ingredient_path(@generic_package_ingredient) %> |
+<%= link_to 'Back', generic_package_ingredients_path %>

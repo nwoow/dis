@@ -1,0 +1,29 @@
+<%= simple_form_for(@manufacturer) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :manufacturer_name , label: 'Company Name', error: "Please enter a company name"%>
+    <%= f.input :manufacturer_abbr , label: 'Short Name', error: "Please enter a shortcompany name"%>
+    <%= f.input :address1 , label: 'Address1', error: "Please enter address"%>
+    <%= f.input :address2 , label: 'Address 2', error: "address2 is mandatory"%>
+    <%= f.input :state_id , label: 'State', error: "Please select a state" do %>
+      <%= f.select :state_id, State.all.map { |r| [r.state_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+    <%= f.input :city_id , label: 'City', error: "Please enter a city" do%>
+      <%= f.select :city_id, City.all.map { |r| [r.city_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+    <%= f.input :pin , label: 'Pin', error: "pin is mandatory"%>
+    <%= f.input :phone , label: 'Phone Number', error: "phone is mandatory"%>
+    <%= f.input :fax , label: 'Fax Number', error: "fax is mandatory"%>
+    <%= f.input :email , label: 'Email', error: "email is mandatory"%>
+    <%= f.input :website , label: 'Company website', error: "website is mandatory"%>
+    <%= f.input :mobilephone , label: 'Mobile', error: "mobilephone is mandatory"%>
+    <%= f.input :data_source_id , label: 'Data Source', error: "data_source_id is mandatory" do %>
+      <%= f.select :data_source_id, DataSource.all.map { |r| [r.data_source_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Save" %>
+  </div>
+<% end %>

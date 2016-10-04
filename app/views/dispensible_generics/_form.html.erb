@@ -1,0 +1,32 @@
+<%= simple_form_for(@dispensible_generic) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :generic_id, hint: 'Please select a generic from the dropdown', label: 'Generic', error: 'Please select a generic' do %>
+      <%= f.select :generic_id, Generic.all.map { |r| [r.generic_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+    <%= f.input :route_id, label: 'Route', error: 'Please select a route' do %>
+      <%= f.select :route_id, Route.all.map { |r| [r.route_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+    <%= f.input :doseform_id, label: 'Doseform', error: 'Please select a doseform' do %>
+      <%= f.select :doseform_id, DoseForm.all.map { |r| [r.doseform_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+    <%= f.input :generic_strength, hint: 'Only numbers', placeholder: 'Strength of the generic' , label: 'Generic Strength', error: 'Please enter the strength' %>
+    <%= f.input :doseunit_id, label: 'Unit', error: 'Please select a Unit' do %>
+      <%= f.select :doseunit_id, Doseunit.all.map { |r| [r.doseunit_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+    <%= f.input :dispensible_qty, label: 'Dispensible Qty', error: 'Please enter the dispensible qty' %>
+    <%= f.input :doseunit_id, label: 'Unit', error: 'Please select a Unit' do %>
+      <%= f.select :doseunit_id, Doseunit.all.map { |r| [r.doseunit_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+    <%= f.input :dispensible_generic_text, label: 'Dispensible Generic', error: 'This is auto populated' %>
+    <%= f.input :data_source_id, label: 'Data Source', error: 'Please select a data source' do %>
+      <%= f.select :data_source_id, DataSource.all.map { |r| [r.data_source_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+        <!-- <%= f.input :status, label: 'Active Status', error: 'This is auto populated' %> -->
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Save" %>
+  </div>
+<% end %>

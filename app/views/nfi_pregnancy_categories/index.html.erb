@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Nfi Pregnancy Categories</h1>
+
+<table id="example" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+
+      <th>Preg category name</th>
+      <th>Preg category description</th>
+      <th>Data source </th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nfi_pregnancy_categories.each do |nfi_pregnancy_category| %>
+      <tr>
+
+        <td><%= nfi_pregnancy_category.preg_category_name %></td>
+        <td><%= nfi_pregnancy_category.preg_category_description %></td>
+        <td><%= DataSource.where("id = ?", nfi_pregnancy_category.data_source_id).pluck(:data_source_name).first %></td>
+        <td><%= nfi_pregnancy_category.status %></td>
+        <td><%= link_to 'Show', nfi_pregnancy_category %>,<%= link_to 'Edit', edit_nfi_pregnancy_category_path(nfi_pregnancy_category) %>,<%= link_to 'Destroy', nfi_pregnancy_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New', new_nfi_pregnancy_category_path %>

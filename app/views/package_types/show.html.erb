@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Package type:</strong>
+  <%= @package_type.package_type_id %>
+</p>
+
+<p>
+  <strong>Package type name:</strong>
+  <%= @package_type.package_type_name %>
+</p>
+
+<p>
+  <strong>Data source data source:</strong>
+  <%= @package_type.data_source_data_source_id %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @package_type.status %>
+</p>
+
+<%= link_to 'Edit', edit_package_type_path(@package_type) %> |
+<%= link_to 'Back', package_types_path %>

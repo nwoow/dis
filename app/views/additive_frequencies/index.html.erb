@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Additive Frequencies</h1>
+
+<table id="example" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Display Text</th>
+      <th>Description</th>
+      <th>Data Source</th>
+      <th>Active Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @additive_frequencies.each do |additive_frequency| %>
+      <tr>
+      <!-- <td><%= additive_frequency.id%></td> -->
+        <td><%= additive_frequency.display_text%></td>
+        <td><%= additive_frequency.description%></td>
+         <td><%= additive_frequency.data_source_id%></td>
+         <td><%= additive_frequency.status%></td>
+        <td><center><%= link_to 'Show', additive_frequency %>,<%= link_to 'Edit', edit_additive_frequency_path(additive_frequency) %>,<%= link_to 'Destroy', additive_frequency, method: :delete, data: { confirm: 'Are you sure?' } %></center></td>
+
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Add New', new_additive_frequency_path %>
+
+<br>

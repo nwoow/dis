@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Data Sources</h1>
+
+<table id="example1" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <!-- <th>id</th> -->
+      <th>Data Source Name</th>
+      <th>Active Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @data_sources.each do |data_source| %>
+      <tr>
+        <!-- <td><%= data_source.id %></td> -->
+        <td><%= data_source.data_source_name %></td>
+        <td><%= data_source.status %></td>
+        <td><%= link_to 'Show', data_source %>,<%= link_to 'Edit', edit_data_source_path(data_source) %>,<%= link_to 'Destroy', data_source, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New', new_data_source_path %>

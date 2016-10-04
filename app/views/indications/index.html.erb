@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Indications</h1>
+
+<table id="example" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Indication</th>
+      <th>Data Source</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @indications.each do |indication| %>
+      <tr>
+        <td><%= indication.indication_name %></td>
+        <td><%= DataSource.where("id = ?", indication.data_source_id).pluck(:data_source_name).first   %></td>
+        <td><%= indication.status %></td>
+        <td><%= link_to 'Show', indication %></td>
+        <td><%= link_to 'Edit', edit_indication_path(indication) %></td>
+        <td><%= link_to 'Destroy', indication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New', new_indication_path %>

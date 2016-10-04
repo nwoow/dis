@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Nfi Indications</h1>
+
+<table id="example" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Indication name</th>
+      <th>Data source data source</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nfi_indications.each do |nfi_indication| %>
+      <tr>
+        <td><%= nfi_indication.indication_name %></td>
+        <td><%= nfi_indication.data_source_id %></td>
+        <td><%= nfi_indication.status %></td>
+        <td><%= link_to 'Show', nfi_indication %></td>
+        <td><%= link_to 'Edit', edit_nfi_indication_path(nfi_indication) %></td>
+        <td><%= link_to 'Destroy', nfi_indication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nfi Indication', new_nfi_indication_path %>

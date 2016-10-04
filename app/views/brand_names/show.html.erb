@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>ID:</strong>
+  <%= @brand_name.id %>
+</p>
+
+<p>
+  <strong>Brand Name:</strong>
+  <%= @brand_name.brand_name %>
+</p>
+<p>
+  <strong>Generic:</strong>
+  <%= Generic.where("id = ?", @brand_name.generic_id).pluck(:generic_name).first%>
+  <!-- <%= @brand_name.generic_id %> -->
+</p>
+<p>
+  <strong>Data Source:</strong>
+ <%= DataSource.where("id = ?", @brand_name.data_source_id).pluck(:data_source_name).first%>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @brand_name.status %>
+</p>
+
+<%= link_to 'Edit', edit_brand_name_path(@brand_name) %> |
+<%= link_to 'Back', brand_names_path %>

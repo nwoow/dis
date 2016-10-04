@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Generics:</strong>
+  <%= Generic.where("id = ?", @lactation.generic_id).pluck(:generic_name).first %>
+</p>
+
+<p>
+  <strong>Lactation Advise:</strong>
+  <%= @lactation.lactation_text %>
+</p>
+
+<p>
+  <strong>Data Source:</strong>
+  <%= DataSource.where("id = ?", @lactation.data_source_id).pluck(:data_source_name).first %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @lactation.status %>
+</p>
+
+<%= link_to 'Edit', edit_lactation_path(@lactation) %> |
+<%= link_to 'Back', lactations_path %>

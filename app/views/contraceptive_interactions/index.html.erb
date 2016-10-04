@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Contraceptive Interactions</h1>
+
+<table id="example" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <!-- <th>id</th> -->
+      <th>Generic</th>
+      <th>Interaction</th>
+      <th>Data Source</th>
+      <th>Active Status</th>
+        <th>Action</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contraceptive_interactions.each do |contraceptive_interaction| %>
+      <tr>
+        <!-- <td><%= contraceptive_interaction.id %></td> -->
+        <!-- <td><%= contraceptive_interaction.generic_id %></td> -->
+        <td><%= Generic.where("id = ?", contraceptive_interaction.generic_id).pluck(:generic_name).first%></td>
+        <td><%= contraceptive_interaction.contraceptive_interaction_text %></td>
+        <td><%= DataSource.where("id=?", contraceptive_interaction.data_source_id).pluck(:data_source_name).first%></td>
+        <!-- <td><%= contraceptive_interaction.data_source_id %></td> -->
+        <td><%= contraceptive_interaction.status %></td>
+        <td><%= link_to 'Show', contraceptive_interaction %>,<%= link_to 'Edit', edit_contraceptive_interaction_path(contraceptive_interaction) %>,<%= link_to 'Destroy', contraceptive_interaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New', new_contraceptive_interaction_path %>

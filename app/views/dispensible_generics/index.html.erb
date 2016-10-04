@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dispensible Generics</h1>
+
+<table id="example" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <!-- <th>id</th> -->
+      <th>Generic</th>
+      <th>Route</th>
+      <th>Doseform</th>
+      <th>Generic Strength</th>
+      <th>Unit</th>
+      <th>Dispensible Qty</th>
+      <th>Unit</th>
+      <th>Dispensible Generic</th>
+      <th>Data Source</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dispensible_generics.each do |dispensible_generic| %>
+      <tr>
+        <!-- <td><%= dispensible_generic.id %></td> -->
+        <td><%= Generic.where("id = ?", dispensible_generic.generic_id).pluck(:generic_name).first %></td>
+        <td><%= Route.where("id = ?", dispensible_generic.route_id).pluck(:route_name).first %></td>
+        <td><%= DoseForm.where("id = ?", dispensible_generic.doseform_id).pluck(:doseform_name).first %></td>
+        <td><%= dispensible_generic.generic_strength %></td>
+        <td><%= Doseunit.where("id = ?", dispensible_generic.doseunit_id).pluck(:doseunit_abbr).first %></td>
+        <td><%= dispensible_generic.dispensible_qty %></td>
+        <td><%= Doseunit.where("id = ?", dispensible_generic.doseunit_id).pluck(:doseunit_abbr).first %></td>
+        <td><%= dispensible_generic.dispensible_generic_text %></td>
+        <td><%= DataSource.where("id = ?", dispensible_generic.data_source_id).pluck(:data_source_name).first %></td>
+        <td><%= dispensible_generic.status %></td>
+        <td><%= link_to 'Show', dispensible_generic %></td>
+        <td><%= link_to 'Edit', edit_dispensible_generic_path(dispensible_generic) %></td>
+        <td><%= link_to 'Destroy', dispensible_generic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New', new_dispensible_generic_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ID:</strong>
+  <%= @contraceptive_interaction.id %>
+</p>
+
+<p>
+  <strong>Generic:</strong>
+  <%= Generic.where("id = ?", @contraceptive_interaction.generic_id).pluck(:generic_name).first%>
+</p>
+
+<p>
+  <strong>Interaction:</strong>
+  <%= @contraceptive_interaction.contraceptive_interaction_text %>
+</p>
+
+<p>
+  <strong>Data Source:</strong>
+ <%= DataSource.where("id = ?", @contraceptive_interaction.data_source_id).pluck(:data_source_name).first%>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @contraceptive_interaction.status %>
+</p>
+
+<%= link_to 'Edit', edit_contraceptive_interaction_path(@contraceptive_interaction) %> |
+<%= link_to 'Back', contraceptive_interactions_path %>

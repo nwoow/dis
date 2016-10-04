@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Indication Generic Maps</h1>
+
+<table id="example" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Generic</th>
+      <th>Indication</th>
+      <th>Data Source</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @indication_generic_maps.each do |indication_generic_map| %>
+      <tr>
+        <td><%= Generic.where("id = ?", indication_generic_map.generic_id).pluck(:generic_name).first %></td>
+        <td><%= Indication.where("id = ?", indication_generic_map.indication_id).pluck(:indication_name).first %></td>
+        <td><%= DataSource.where("id = ?", indication_generic_map.data_source_id).pluck(:data_source_name).first %></td>
+        <td><%= indication_generic_map.status %></td>
+        <td><%= link_to 'Show', indication_generic_map %></td>
+        <td><%= link_to 'Edit', edit_indication_generic_map_path(indication_generic_map) %></td>
+        <td><%= link_to 'Destroy', indication_generic_map, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New', new_indication_generic_map_path %>

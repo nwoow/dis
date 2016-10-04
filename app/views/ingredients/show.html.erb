@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ID:</strong>
+  <%= @ingredient.id %>
+</p>
+
+<p>
+  <strong>Ingredient:</strong>
+<<<<<<< HEAD
+  <%= @ingredient.id %>
+</p>
+
+<p>
+  <strong>Data source data source:</strong>
+  <%= @ingredient.data_source_id %>
+=======
+  <%= @ingredient.ingredient_name %>
+</p>
+
+<p>
+  <strong>Data Source:</strong>
+  <%= DataSource.where("id=?", @ingredient.data_source_id).pluck(:data_source_name).first %>
+>>>>>>> 95035b025941f05babefaffd9c97bf536c001a50
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @ingredient.status %>
+</p>
+
+<%= link_to 'Edit', edit_ingredient_path(@ingredient) %> |
+<%= link_to 'Back', ingredients_path %>

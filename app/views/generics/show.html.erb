@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Generic name:</strong>
+  <%= @generic.generic_name %>
+</p>
+
+<p>
+  <strong>Is Combination:</strong>
+  <%= @generic.is_combination %>
+</p>
+<p>
+  <strong>Is Essential:</strong>
+  <%= @generic.is_essential %>
+</p>
+
+<p>
+  <strong>Generic Type:</strong>
+  <%= Generic.where("id = ?", @generic.generic_type_id).pluck(:generic_name).first %>
+</p>
+
+<p>
+  <strong>Schedule:</strong>
+  <%= NfiSchedule.where("id = ?", @generic.schedule_id).pluck(:schedule_name).first %>
+</p>
+
+<p>
+  <strong>Preg Category:</strong>
+  <%= NfiPregnancyCategory.where("id = ?", @generic.preg_category_id).pluck(:preg_category_name).first %>
+</p>
+
+<p>
+  <strong>Food Intake:</strong>
+  <%= FoodIntake.where("id = ?", @generic.food_intake_id).pluck(:name).first %>
+</p>
+
+<p>
+  <strong>Rxcui:</strong>
+  <%= @generic.rxcui %>
+</p>
+
+<p>
+  <strong>Data source data source:</strong>
+<%=DataSource.where("id = ?", @generic.data_source_id ).pluck(:data_source_name).first %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @generic.status %>
+</p>
+
+<%= link_to 'Edit', edit_generic_path(@generic) %> |
+<%= link_to 'Back', generics_path %>

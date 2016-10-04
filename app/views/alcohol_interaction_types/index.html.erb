@@ -1,0 +1,35 @@
+
+
+<p id="notice"><%= notice %></p>
+
+<h1>Alcohol Interaction Types</h1>
+
+<table id="example" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Display Name</th>
+      <th>Description</th>
+      <th>Data Source</th>
+      <th>Active Status</th>
+
+
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @alcohol_interaction_types.each do |alcohol_interaction_type| %>
+      <tr>
+        <td><%= alcohol_interaction_type.alcohol_interaction_type_name%></td>
+         <td><%= alcohol_interaction_type.alcohol_interaction_type_text%></td>
+         <td><%= DataSource.where("id = ?", alcohol_interaction_type.data_source_id).pluck(:data_source_name).first%></td>
+         <td><%= alcohol_interaction_type.status%></td>
+        <td><center><%= link_to 'Show', alcohol_interaction_type %>,<%= link_to 'Edit', edit_alcohol_interaction_type_path(alcohol_interaction_type) %>,<%= link_to 'Destroy', alcohol_interaction_type, method: :delete, data: { confirm: 'Are you sure?' } %></center></td>
+
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Add New', new_alcohol_interaction_type_path %>

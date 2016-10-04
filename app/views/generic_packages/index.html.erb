@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Generic Packages</h1>
+
+<table id="example" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Brand name</th>
+      <th>Manufacturer manufacturer</th>
+      <th>Dispensible generic</th>
+      <th>Package qty</th>
+      <th>Package type</th>
+      <th>Price</th>
+      <th>Generic package text</th>
+      <th>Data source</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @generic_packages.each do |generic_package| %>
+      <tr>
+        <td><%= generic_package.brand_name_id %></td>
+        <td><%= generic_package.manufacturer_manufacturer_id %></td>
+        <td><%= generic_package.dispensible_generic_id %></td>
+        <td><%= generic_package.package_qty %></td>
+        <td><%= generic_package.package_type_id %></td>
+        <td><%= generic_package.price %></td>
+        <td><%= generic_package.generic_package_text %></td>
+        <td><%= generic_package.data_source_id %></td>
+        <td><%= generic_package.status %></td>
+        <td><%= link_to 'Show', generic_package %></td>
+        <td><%= link_to 'Edit', edit_generic_package_path(generic_package) %></td>
+        <td><%= link_to 'Destroy', generic_package, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Generic Package', new_generic_package_path %>

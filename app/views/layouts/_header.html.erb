@@ -1,0 +1,65 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "DIS", root_url, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+
+
+        <% if user_signed_in? %>
+    <li class="dropdown">
+          <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Menu
+            <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><%=link_to " alcohol_interactions", alcohol_interactions_path %></li>
+            <li><%=link_to "additive_frequencies", additive_frequencies_path %></li>
+            <li><%=link_to "alcohol_interaction_type", alcohol_interaction_types_path %></li>
+            <li><%=link_to "BrandName", brand_names_path %></li>
+            <li><%=link_to "combination_content", combination_contents_path %></li>
+            <li><%=link_to "combination_package_ingredient", combination_package_ingredients_path %></li>
+            <li><%=link_to "combination_packages", combination_packages_path %></li>
+            <li><%=link_to "contraceptive_interactions", contraceptive_interactions_path %></li>
+            <li><%=link_to "data_sources", data_sources_path %></li>
+            <li><%=link_to "dispensible_combinations", dispensible_combinations_path %></li>
+            <li><%=link_to "dispensible_generics", dispensible_generics_path %></li>
+            <li><%=link_to "dose_periods", dose_periods_path %></li>
+            <li><%=link_to "doseform_doseunits", doseform_doseunits_path %></li>
+            <li><%=link_to "doseunits", doseunits_path %></li>
+            <li><%=link_to "drug_interactions", drug_interactions_path %></li>
+            <li><%=link_to "food_intakes", food_intakes_path %></li>
+            <li><%=link_to "generics", generics_path %></li>
+            <li><%=link_to "generic_monographs", generic_monographs_path %></li>
+            <li><%=link_to "generic_package_ingredients", generic_package_ingredients_path %></li>
+            <li><%=link_to "generic_packages", generic_packages_path %></li>
+            <li><%=link_to "hepatic_impairments", hepatic_impairments_path %></li>
+            <li><%=link_to "indication_generic_maps", indication_generic_maps_path %></li>
+            <li><%=link_to "ingredients", ingredients_path %></li>
+            <li><%=link_to "indications", indications_path %></li>
+            <li><%=link_to "lactations", lactations_path %></li>
+            <li><%=link_to "manufacturers", manufacturers_path %></li>
+            <li><%=link_to "nfi_pregnancy_categories", nfi_pregnancy_categories_path %></li>
+            <li><%=link_to "nfi_schedules", nfi_schedules_path %></li>
+            <li><%=link_to "nfi_sub_systems", nfi_sub_systems_path %></li>
+            <li><%=link_to "nfi_systems", nfi_systems_path %></li>
+            <li><%=link_to "package_types", package_types_path %></li>
+            <li><%=link_to "routes", routes_path %></li>
+            <li><%=link_to "generic_types", generic_types_path %></li>
+            <li><%=link_to "dose_forms", dose_forms_path %></li>
+
+          </ul>
+        </li>
+         <li><%= link_to "Home",   root_path %></li>
+        <li><%= link_to "Help",   '#' %></li>
+
+        Logged in as <strong><%= current_user.email %></strong>.
+       <li> <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li> |
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+      <% else %>
+       <li> <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> </li>
+        <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+      <% end %>
+
+      </ul>
+    </nav>
+  </div>
+
+</header>

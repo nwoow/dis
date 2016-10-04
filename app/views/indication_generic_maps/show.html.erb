@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ID:</strong>
+  <%= @indication_generic_map.id %>
+</p>
+
+<p>
+  <strong>Generic:</strong>
+  <%= Generic.where("id = ?", @indication_generic_map.generic_id).pluck(:generic_name).first %>
+</p>
+<p>
+  <strong>Indication:</strong>
+  <%= Indication.where("id = ?", @indication_generic_map.indication_id).pluck(:indication_name).first %>
+</p>
+
+
+<p>
+  <strong>Data source:</strong>
+  <%= DataSource.where("id = ?", @indication_generic_map.data_source_id).pluck(:data_source_name).first %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @indication_generic_map.status %>
+</p>
+
+<%= link_to 'Edit', edit_indication_generic_map_path(@indication_generic_map) %> |
+<%= link_to 'Back', indication_generic_maps_path %>

@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dose Units</h1>
+
+<table id="example1" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Dose Unit</th>
+      <th>Abbreviation</th>
+      <th>Data Source</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @doseunits.each do |doseunit| %>
+      <tr>
+        <td><%= doseunit.doseunit_name %></td>
+        <td><%= doseunit.doseunit_abbr %></td>
+        <td><%= DataSource.where("id = ?", doseunit.data_source_id).pluck(:data_source_name).first  %></td>
+        <td><%= doseunit.status %></td>
+        <td><%= link_to 'Show', doseunit %>,<%= link_to 'Edit', edit_doseunit_path(doseunit) %>,<%= link_to 'Destroy', doseunit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New', new_doseunit_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>System name:</strong>
+  <%= @nfi_system.system_name %>
+</p>
+
+<p>
+  <strong>Sysem description:</strong>
+  <%= @nfi_system.sysem_description %>
+</p>
+
+<p>
+  <strong>Data source data source:</strong>
+  <%= @nfi_system.data_source_data_source_id %>
+</p>
+
+<p>
+  <strong>Sub system exist:</strong>
+  <%= @nfi_system.sub_system_exist %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @nfi_system.status %>
+</p>
+
+<%= link_to 'Edit', edit_nfi_system_path(@nfi_system) %> |
+<%= link_to 'Back', nfi_systems_path %>

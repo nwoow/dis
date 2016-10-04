@@ -1,0 +1,27 @@
+<%= simple_form_for @combination_content do |f| %>
+  <%= f.input :combination_generic, label: 'Combination Generic', error: 'Please select a combination generic' do%>
+    <%= f.select :combination_generic, Generic.where(is_combination: true).map { |r| [r.generic_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+  <% end %>
+  <%= f.input :constituent_generic, label: 'Constituent Generic', error: 'Please select a consituent generic' do%>
+    <%= f.select :constituent_generic, Generic.where(is_combination: false).map { |r| [r.generic_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+  <% end %>
+  <%= f.input :generic_strength_content , label: 'Strength', error: 'Please enter the strength of the constituent'  %>
+  <!-- <%= f.input :doseunit_id , label: 'Unit', error: 'Please select the unit'  %> -->
+    <%= f.input :doseunit_id , label: 'Unit', error: 'Please select the unit' do %>
+    <%= f.select :doseunit_id, Doseunit.all.map { |r| [r.doseunit_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+  <% end %>
+
+  <!-- <%= f.input :data_source_id , label: 'Data Source', error: 'Please select a data source'  %> -->
+  <%= f.input :data_source_id, label: 'Data Source', error: 'Please select a data source' do %>
+    <%= f.select :data_source_id, DataSource.all.map { |r| [r.data_source_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+  <% end %>
+  <!-- <%= f.input :status , label: 'Active Status', error: 'Auto populated field'  %> -->
+
+  <!-- <%= f.input :status do %>
+
+  demo for select using bootstrap simple_form
+    <%= f.select :status, AdditiveFrequency.all.map { |r| [r.display_text, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+  <% end %> -->
+
+  <%= f.button :submit, "Save" %>
+<% end %>

@@ -1,0 +1,26 @@
+<%= simple_form_for @combination_package_ingredient do |f| %>
+  <%= f.input :combination_package_id , label: 'Combination Package', error: 'Please select a Combination Package' do %>
+    <%= f.select :combination_package_id, CombinationPackage.all.map { |r| [r.combination_package_text, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+  <% end %>
+  <%= f.input :ingredient_id, label: 'Ingredient', error: 'Please select a ingredient' do %>
+    <%= f.select :ingredient_id, Ingredient.all.map { |r| [r.ingredient_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+  <% end %>
+
+  <%= f.input :ingredient_qty , label: 'Quantity', error: 'Please enter a quantity'  %>
+
+  <%= f.input :doseunit_id , label: 'Unit', error: 'Please select the unit' do %>
+    <%= f.select :doseunit_id, Doseunit.all.map { |r| [r.doseunit_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+  <% end %>
+  <%= f.input :data_source_id, label: 'Data Source', error: 'Please select a data source' do %>
+    <%= f.select :data_source_id, DataSource.all.map { |r| [r.data_source_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+  <% end %>
+  <!-- <%= f.input :status , label: 'Active Status', error: 'status is mandatory, please specify one'  %> -->
+
+  <!-- <%= f.input :status do %>
+
+  demo for select using bootstrap simple_form
+    <%= f.select :status, AdditiveFrequency.all.map { |r| [r.display_text, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+  <% end %> -->
+
+  <%= f.button :submit, "Save" %>
+<% end %>

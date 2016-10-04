@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  distric_name: MyString
+  district_code: MyString
+  state_HASC_code: MyString
+  country_alpha2_code: MyString
+
+two:
+  distric_name: MyString
+  district_code: MyString
+  state_HASC_code: MyString
+  country_alpha2_code: MyString

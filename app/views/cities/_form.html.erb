@@ -1,0 +1,14 @@
+<%= simple_form_for(@city) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :distric_name %>
+    <%= f.input :district_code %>
+    <%= f.input :state_HASC_code %>
+    <%= f.input :country_alpha2_code %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

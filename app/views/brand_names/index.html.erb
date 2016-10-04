@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Brand Names</h1>
+
+<table id="example" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <!-- <th>id</th> -->
+      <th>Brand Name</th>
+      <th>Generic</th>
+      <th>Data Source</th>
+      <th>Active Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @brand_names.each do |brand_name| %>
+      <tr>
+      <!-- <td><%= brand_name.id%></td> -->
+        <td><%= brand_name.brand_name%></td>
+         <td><%= Generic.where("id = ?", brand_name.generic_id).pluck(:generic_name).first%></td>
+         <td><%= DataSource.where("id=?", brand_name.data_source_id).pluck(:data_source_name).first%></td>
+         <td><%= brand_name.status%></td>
+
+        <td><center><%= link_to 'Show', brand_name %>,<%= link_to 'Edit', edit_brand_name_path(brand_name) %>,<%= link_to 'Destroy', brand_name, method: :delete, data: { confirm: 'Are you sure?' } %></center></td>
+
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+
+<%= link_to 'Add New', new_brand_name_path %>

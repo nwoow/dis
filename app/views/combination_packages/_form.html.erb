@@ -1,0 +1,20 @@
+<%= simple_form_for @combination_package do |f| %>
+  <%= f.input :brand_name_id , label: 'Brand Name', error: 'Please select a Brand Name'%>
+  <%= f.input :manufacturer_id, label: 'Manufacturer', error: 'Please select a Manufacturer'  %>
+  <%= f.input :dispensible_combination_id , label: 'Dispensible Combination', error: 'Pleae selct a Dispensible Combination'  %>
+  <%= f.input :combination_text , label: 'combination_text', error: 'Combination Text is Auto populated'  %>
+  <%= f.input :package_qty , label: '	Package Qty', error: ' Please enter the qty in the package'  %>
+  <%= f.input :package_type_id , label: 'Package Type', error: 'Please select a Package Type'  %>
+  <%= f.input :price , label: 'Price', error: 'Please enter Price of the package'  %>
+  <%= f.input :combination_package_text , label: 'Combination Package', error: 'Combination Package is auto populated'  %>
+  <%= f.input :data_source_id , label: 'Source of Data', error:'Please select the source of data'  %>
+  <%= f.input :status , label: 'Active Status', error: 'Status is auto populated'  %>
+
+  <!-- <%= f.input :status do %>
+
+  demo for select using bootstrap simple_form
+    <%= f.select :status, AdditiveFrequency.all.map { |r| [r.display_text, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+  <% end %> -->
+
+  <%= f.button :submit, "Save" %>
+<% end %>

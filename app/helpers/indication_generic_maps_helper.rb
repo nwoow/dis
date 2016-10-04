@@ -1,0 +1,2 @@
+module IndicationGenericMapsHelper
+end

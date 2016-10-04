@@ -1,0 +1,19 @@
+<%= simple_form_for(@hepatic_impairment) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :generic_id, label: 'Generic', error: 'Please select a generic' do %>
+      <%= f.select :generic_id, Generic.all.map { |r| [r.generic_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+    <%= f.input :hepatic_imp_instructions , label: 'Instructions', error: 'Please enter hepatic inpairment instructions'%>
+    <%= f.input :hepatic_imp_text , label: 'Hepatic impairment text', error: 'Please enter text' %>
+    <%= f.input :data_source_id, label: 'Data Source', error: 'Please select a data source' do %>
+      <%= f.select :data_source_id, DataSource.all.map { |r| [r.data_source_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+    <!-- <%= f.input :status , error: "status is mandatory"%> -->
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Save" %>
+  </div>
+<% end %>

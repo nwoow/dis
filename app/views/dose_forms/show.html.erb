@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ID:</strong>
+  <%= @dose_form.id %>
+</p>
+<p>
+  <strong>Doseform:</strong>
+  <%= @dose_form.doseform_name %>
+</p>
+
+<p>
+  <strong>Abbreviation:</strong>
+  <%= @dose_form.doseform_abbr %>
+</p>
+
+<p>
+  <strong>Data Source:</strong>
+  <%= DataSource.where("id = ?", @dose_form.data_source_id).pluck(:data_source_name).first %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @dose_form.status %>
+</p>
+
+<%= link_to 'Edit', edit_dose_form_path(@dose_form) %> |
+<%= link_to 'Back', dose_forms_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>ID:</strong>
+  <%= @alcohol_interaction.id %>
+</p>
+<p>
+  <strong>Generic:</strong>
+  <%= Generic.where("id = ?", @alcohol_interaction.generic_id).pluck(:generic_name).first%>
+</p>
+<p>
+  <strong>Interaction Type:</strong>
+  <%= AlcoholInteractionType.where("id = ?", @alcohol_interaction.alcohol_interaction_type_id).pluck(:alcohol_interaction_type_text).first%>
+</p>
+<p>
+  <strong>Data Source:</strong>
+  <%= DataSource.where("id = ?", @alcohol_interaction.data_source_id).pluck(:data_source_name).first%>
+</p>
+<p>
+  <strong>Status:</strong>
+  <%= @alcohol_interaction.status %>
+</p>
+
+<%= link_to 'Edit', edit_alcohol_interaction_path(@alcohol_interaction) %> |
+<%= link_to 'Back', alcohol_interactions_path %>

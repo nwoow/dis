@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dispensible Combinations</h1>
+
+<table id="example" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <!-- <th>id</th> -->
+      <th>Combination Generic</th>
+      <th>Doseform</th>
+      <th>Route</th>
+      <th>Dispensible Combination</th>
+      <th>Data Source</th>
+      <th>Active Status</th>
+      <th>Action</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dispensible_combinations.each do |dispensible_combination| %>
+      <tr>
+        <!-- <td><%= dispensible_combination.id %></td> -->
+        <!-- <td><%= dispensible_combination.generic_id %></td> -->
+        <td><%= Generic.where("id = ?", dispensible_combination.generic_id).pluck(:generic_name).first%></td>
+        <td><%= DoseForm.where("id = ?", dispensible_combination.doseform_id).pluck(:doseform_name).first %></td>
+        <td><%= Route.where("id = ?", dispensible_combination.route_id).pluck(:route_name).first %></td>
+        <td><%= dispensible_combination.dispensible_combination_text %></td>
+        <!-- <td><%= dispensible_combination.data_source_id %></td> -->
+        <td><%= DataSource.where("id=?", dispensible_combination.data_source_id).pluck(:data_source_name).first%></td>
+        <td><%= dispensible_combination.status %></td>
+        <td><%= link_to 'Show', dispensible_combination %>,<%= link_to 'Edit', edit_dispensible_combination_path(dispensible_combination) %>,<%= link_to 'Destroy', dispensible_combination, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New', new_dispensible_combination_path %>

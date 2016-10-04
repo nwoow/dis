@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Generic Monographs</h1>
+
+<table id="example" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Generic</th>
+      <th>Dose</th>
+      <th>Contraindication</th>
+      <th>Precaution</th>
+      <th>Adverse Effect</th>
+      <th>Storage</th>
+      <th>Data Source</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @generic_monographs.each do |generic_monograph| %>
+      <tr>
+        <td><%= Generic.where("id = ?", generic_monograph.generic_id).pluck(:generic_name).first %></td>
+        <td><%= generic_monograph.dose_monograph %></td>
+        <td><%= generic_monograph.contraindication_monograph %></td>
+        <td><%= generic_monograph.precaution_monograph %></td>
+        <td><%= generic_monograph.adverseeffect_monograph %></td>
+        <td><%= generic_monograph.storage_monograph %></td>
+        <td><%= DataSource.where("id = ?", generic_monograph.data_source_id).pluck(:data_source_name).first  %></td>
+        <td><%= generic_monograph.status %></td>
+        <td><%= link_to 'Show', generic_monograph %>,<%= link_to 'Edit', edit_generic_monograph_path(generic_monograph) %>,<%= link_to 'Destroy', generic_monograph, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New', new_generic_monograph_path %>

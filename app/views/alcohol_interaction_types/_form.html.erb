@@ -1,0 +1,17 @@
+<%= simple_form_for @alcohol_interaction_type do |f| %>
+
+  <%= f.input :alcohol_interaction_type_name, label: 'Display Name', error: 'Please enter a display text'%>
+  <%= f.input :alcohol_interaction_type_text, label: 'Description', error: 'Please enter a Description'  %>
+
+
+  <!--Start for slectable js input it is also searchable  -->
+  <%= f.input :data_source_id, label: 'Data Source', error: 'Please select a data source' do %>
+    <%= f.select :data_source_id, DataSource.all.map { |r| [r.data_source_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+
+  <!-- <%= f.input :status, label: 'Active Status', error: 'Auto populated field'  %> -->
+
+  <% end %>
+  <!--End for slectable js input it is also searchable  -->
+
+  <%= f.button :submit, "Save" %>
+<% end %>

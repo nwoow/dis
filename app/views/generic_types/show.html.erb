@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Generic type name:</strong>
+  <%= @generic_type.generic_type_name %>
+</p>
+
+<p>
+  <strong>Data source data source:</strong>
+    <%=DataSource.where("id = ?", @generic_type.data_source_id).pluck(:data_source_name).first %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @generic_type.status %>
+</p>
+
+<%= link_to 'Edit', edit_generic_type_path(@generic_type) %> |
+<%= link_to 'Back', generic_types_path %>

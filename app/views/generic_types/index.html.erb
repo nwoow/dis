@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Generic Types</h1>
+
+<table id="example" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Generic type name</th>
+      <th>Data source data source</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @generic_types.each do |generic_type| %>
+      <tr>
+        <td><%= generic_type.generic_type_name %></td>
+        <td><%= DataSource.where("id = ?",generic_type.data_source_id).pluck(:data_source_name).first  %></td>
+        <td><%= generic_type.status %></td>
+        <td><%= link_to 'Show', generic_type %>,<%= link_to 'Edit', edit_generic_type_path(generic_type) %>,<%= link_to 'Destroy', generic_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Generic Type', new_generic_type_path %>

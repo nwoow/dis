@@ -1,0 +1,32 @@
+<p>
+  <strong>ID:</strong>
+  <%= @hepatic_impairment.id %>
+</p>
+
+<p>
+  <strong>Generic:</strong>
+  <%= Generic.where("id = ?", @hepatic_impairment.generic_id).pluck(:generic_name).first%>
+</p>
+
+<p>
+  <strong>Instructions:</strong>
+  <%= @hepatic_impairment.hepatic_imp_instructions %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @hepatic_impairment.hepatic_imp_text %>
+</p>
+
+<p>
+  <strong>Data Source:</strong>
+  <%= DataSource.where("id = ?", @hepatic_impairment.data_source_id).pluck(:data_source_name).first %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @hepatic_impairment.status %>
+</p>
+
+<%= link_to 'Edit', edit_hepatic_impairment_path(@hepatic_impairment) %> |
+<%= link_to 'Back', hepatic_impairments_path %>

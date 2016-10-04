@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ID:</strong>
+  <%= @combination_content.id %>
+</p>
+<p>
+  <strong>Combination Generic:</strong>
+  <%= Generic.where("id = ?", @combination_content.combination_generic).pluck(:generic_name).first%>
+</p>
+<p>
+  <strong>Constituent Generic:</strong>
+  <%= Generic.where("id = ?", @combination_content.constituent_generic).pluck(:generic_name).first%>
+</p>
+<p>
+  <strong>Strength:</strong>
+  <%= @combination_content.generic_strength_content %>
+</p>
+<p>
+  <strong>Unit:</strong>
+  <%= Doseunit.where("id = ?", @combination_content.doseunit_id).pluck(:Doseunit_name).first%>
+</p>
+<p>
+  <strong>Status:</strong>
+  <%= @brand_name.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_combination_content_path(@combination_content) %> |
+<%= link_to 'Back', combination_contents_path %>

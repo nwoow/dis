@@ -1,0 +1,2 @@
+module HepaticImpairmentsHelper
+end

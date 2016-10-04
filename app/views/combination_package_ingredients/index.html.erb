@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ingredients in Combination Packages</h1>
+
+<table id="example" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <!-- <th>id</th> -->
+      <th>Combination Package</th>
+      <th>Ingredient</th>
+      <th>Quantity</th>
+      <th>Unit</th>
+      <th>Data Source</th>
+      <th>Active Status</th>
+
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @combination_package_ingredients.each do |combination_package_ingredient| %>
+      <tr>
+      <!-- <td><%= combination_package_ingredient.id%></td> -->
+         <!-- <td><%= combination_package_ingredient.combination_package_id%></td> -->
+         <td><%= CombinationPackage.where("id = ?", @combination_package_ingredient.combination_package_id).pluck(:combination_package_text).first%></td>
+         <!-- <td><%= combination_package_ingredient.ingredient_id%></td> -->
+         <td><%= Ingredient.where("id = ?", @combination_package_ingredient.ingredient_id).pluck(:ingredient_name).first%></td>
+         <td><%= combination_package_ingredient.ingredient_qty%></td>
+
+          <!-- <td><%= combination_package_ingredient.doseunit_id%></td> -->
+          <td><%= Doseunit.where("id = ?", @combination_package_ingredient.doseunit_id).pluck(:Doseunit_name).first%></td>
+          <!-- <td><%= combination_package_ingredient.data_source_id%></td> -->
+          <td><%= DataSource.where("id = ?", @combination_package_ingredient.data_source_id).pluck(:data_source_name).first%></td>
+         <td><%= combination_package_ingredient.status%></td>
+
+        <td><center><%= link_to 'Show', combination_package_ingredient %>,<%= link_to 'Edit', edit_combination_package_ingredient_path(combination_package_ingredient) %>,<%= link_to 'Destroy', combination_package_ingredient, method: :delete, data: { confirm: 'Are you sure?' } %></center></td>
+
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+
+<%= link_to 'Add New', new_combination_package_ingredient_path %>

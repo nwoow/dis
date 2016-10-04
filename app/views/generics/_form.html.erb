@@ -1,0 +1,30 @@
+<%= simple_form_for(@generic) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :generic_name  ,label: 'Generic Name' , error: "Please enter a generic name"%>
+    <%= f.input :is_combination , label: 'Combination Generic', error: "is_essential is mandatory"%>
+    <%= f.input :is_essential , label: 'Essential Drug', error: "is_essential is mandatory"%>
+    <%= f.input :generic_type_id, label: 'Generic Type', error: 'Please select a Category ' do %>
+      <%= f.select :generic_type_id, GenericType.all.map { |r| [r.generic_type_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+    <%= f.input :schedule_id, label: 'NFI Schedule', error: 'Please select a Category ' do %>
+      <%= f.select :schedule_id, NfiSchedule.all.map { |r| [r.schedule_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+    <%= f.input :preg_category_id, label: 'Preg Category', error: 'Please select a Category ' do %>
+      <%= f.select :preg_category_id, NfiPregnancyCategory.all.map { |r| [r.preg_category_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+    <%= f.input :food_intake_id, label: 'Food Intake', error: 'Please select a Food Intake ' do %>
+      <%= f.select :food_intake_id, FoodIntake.all.map { |r| [r.food_intake_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+    <%= f.input :rxcui , label: 'RxNorm Concept Unique Identifier ', error: "rxcui is mandatory"%>
+    <%= f.input :data_source_id, label: 'Data Source', error: 'Please select a data source' do %>
+      <%= f.select :data_source_id, DataSource.all.map { |r| [r.data_source_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+    <!-- <%= f.input :status , error: "status is mandatory"%> -->
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Save" %>
+  </div>
+<% end %>

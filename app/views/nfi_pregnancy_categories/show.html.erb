@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Preg category:</strong>
+  <%= @nfi_pregnancy_category.id %>
+</p>
+
+<p>
+  <strong>Preg category name:</strong>
+  <%= @nfi_pregnancy_category.preg_category_name %>
+</p>
+
+<p>
+  <strong>Preg category description:</strong>
+  <%= @nfi_pregnancy_category.preg_category_description %>
+</p>
+
+<p>
+  <strong>Data source </strong>
+  <%= DataSource.where("id = ?", @nfi_pregnancy_category.data_source_id).pluck(:data_source_name).first %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @nfi_pregnancy_category.status %>
+</p>
+
+<%= link_to 'Edit', edit_nfi_pregnancy_category_path(@nfi_pregnancy_category) %> |
+<%= link_to 'Back', nfi_pregnancy_categories_path %>

@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Combination Contents</h1>
+
+<table id="example" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <!-- <th>id</th> -->
+      <th>Combination Generic</th>
+      <th>Constituent Generic</th>
+      <th>Strength</th>
+      <th>Unit</th>
+      <th>Data Source</th>
+      <th>Active Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @combination_contents.each do |combination_content| %>
+      <tr>
+      <!-- <td><%= combination_content.id%></td> -->
+         <td><%= Generic.where("id = ?", @combination_content.combination_generic).pluck(:generic_name).first%></td>
+         <td><%= Generic.where("id = ?", @combination_content.constituent_generic).pluck(:generic_name).first%></td>
+         <td><%= combination_content.generic_strength_content%></td>
+          <td><%= Doseunit.where("id = ?", @combination_content.doseunit_id).pluck(:Doseunit_name).first%></td>
+          <!-- <td><%= combination_content.data_source_id%></td> -->
+          <td><%= DataSource.where("id = ?",@combination_content.data_source_id).pluck(:data_source_name).first%></td>
+         <td><%= combination_content.status%></td>
+
+        <td><center><%= link_to 'Show', combination_content %>,<%= link_to 'Edit', edit_combination_content_path(combination_content) %>,<%= link_to 'Destroy', combination_content, method: :delete, data: { confirm: 'Are you sure?' } %></center></td>
+
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+<%= link_to 'Add New', new_combination_content_path %>

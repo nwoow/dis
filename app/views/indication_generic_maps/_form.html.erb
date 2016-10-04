@@ -1,0 +1,19 @@
+<%= simple_form_for(@indication_generic_map) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :generic_id ,label: 'Generic', error: "please selecta generic" do %>
+      <%= f.select :generic_id, Generic.all.map { |r| [r.generic_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+    <%= f.input :indication_id , label: 'Indication', error: "Please select an indication" do %>
+      <%= f.select :indication_id, Indication.all.map { |r| [r.indication_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+    <%= f.input :data_source_id , label: 'Data Source', error: "Please select a data source" do %>
+      <%= f.select :data_source_id, DataSource.all.map { |r| [r.data_source_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Save" %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module CombinationPackageIngredientsHelper
+end

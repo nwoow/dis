@@ -1,0 +1,2 @@
+module GenericPackageIngredientsHelper
+end

@@ -1,0 +1,1 @@
+json.extract! @dispensible_combination, :id, :dispensible_combination_id, :combination_text, :generic_id, :doseform_id, :route_id, :dispensible_combination_text, :data_source_data_source_id, :status, :created_at, :updated_at

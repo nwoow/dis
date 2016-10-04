@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ID:</strong>
+  <%= @combination_package_ingredient.id %>
+</p>
+<p>
+  <strong>Combination Package:</strong>
+  <%= CombinationPackagesController.where("id = ?", @combination_package_ingredient.combination_package_id).pluck(:combination_package_text).first%>
+</p>
+<p>
+  <strong>Ingredient:</strong>
+  <%= Ingredient.where("id = ?", @combination_package_ingredient.ingredient_id).pluck(:ingredient_name).first%>
+</p>
+<p>
+  <strong>Strength:</strong>
+  <%= @combination_package_ingredient.generic_strength_content %>
+</p>
+<p>
+  <strong>Unit:</strong>
+  <%= Doseunit.where("id = ?", @combination_package_ingredient.doseunit_id).pluck(:Doseunit_name).first%>
+</p>
+<p>
+  <strong>Status:</strong>
+  <%= @combination_package_ingredient.status %>
+</p>
+
+<%= link_to 'Edit', edit_combination_package_ingredient_path(@combination_package_ingredient) %> |
+<%= link_to 'Back', combination_package_ingredients_path %>

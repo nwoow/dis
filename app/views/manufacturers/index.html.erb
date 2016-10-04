@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Manufacturers</h1>
+
+<table id="example" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Manufacturer Name</th>
+      <th>Short Name</th>
+      <th>Address1</th>
+      <th>Address2</th>
+      <th>State</th>
+      <th>City</th>
+      <th>Pin</th>
+      <th>Phone</th>
+      <th>Fax</th>
+      <th>Email</th>
+      <th>Website</th>
+      <th>Mobilephone</th>
+      <th>Data Source</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @manufacturers.each do |manufacturer| %>
+      <tr>
+        <td><%= manufacturer.manufacturer_name %></td>
+        <td><%= manufacturer.manufacturer_abbr %></td>
+        <td><%= manufacturer.address1 %></td>
+        <td><%= manufacturer.address2 %></td>
+        <td><%= State.where("id = ?", manufacturer.state_id).pluck(:state_name).first %></td>
+        <td><%= City.where("id = ?", manufacturer.city_id).pluck(:city_name).first %></td>
+        <td><%= manufacturer.pin %></td>
+        <td><%= manufacturer.phone %></td>
+        <td><%= manufacturer.fax %></td>
+        <td><%= manufacturer.email %></td>
+        <td><%= manufacturer.website %></td>
+        <td><%= manufacturer.mobilephone %></td>
+        <td><%=DataSource.where("id = ?", manufacturer.data_source_id).pluck(:data_source_name).first %></td>
+        <td><%= manufacturer.status %></td>
+        <td><%= link_to 'Show', manufacturer %></td>
+        <td><%= link_to 'Edit', edit_manufacturer_path(manufacturer) %></td>
+        <td><%= link_to 'Destroy', manufacturer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New', new_manufacturer_path %>

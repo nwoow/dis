@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Nfi Systems</h1>
+
+<table id="example" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>System name</th>
+      <th>Sysem description</th>
+      <th>Data source </th>
+      <th>Sub system exist</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nfi_systems.each do |nfi_system| %>
+      <tr>
+        <td><%= nfi_system.system_name %></td>
+        <td><%= nfi_system.sysem_description %></td>
+        <td><%= nfi_system.data_source_id %></td>
+        <td><%= nfi_system.sub_system_exist %></td>
+        <td><%= nfi_system.status %></td>
+        <td><%= link_to 'Show', nfi_system %></td>
+        <td><%= link_to 'Edit', edit_nfi_system_path(nfi_system) %></td>
+        <td><%= link_to 'Destroy', nfi_system, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nfi System', new_nfi_system_path %>

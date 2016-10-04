@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ID:</strong>
+  <%= @dispensible_combination.id %>
+</p>
+
+<p>
+  <strong>Generic:</strong>
+  <%= Generic.where("id =?", @dispensible_combination.generic_id).pluck(:generic_name).first %>
+</p>
+
+<p>
+  <strong>Doseform:</strong>
+  <%= DoseForm.where("id + ?",  @dispensible_combination.doseform_id).pluck(:doseform_name).first %>
+</p>
+
+<p>
+  <strong>Route:</strong>
+  <%= Route.where("id + ?", @dispensible_combination.route_id).pluck(:route_name).first %>
+</p>
+
+<p>
+  <strong>Display Text:</strong>
+  <%= @dispensible_combination.dispensible_combination_text %>
+</p>
+
+<p>
+  <strong>Data Source:</strong>
+  <%= DataSource.where("id = ?", @dispensible_combination.data_source_id).pluck(:data_source_name).first %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @dispensible_combination.status %>
+</p>
+
+<%= link_to 'Edit', edit_dispensible_combination_path(@dispensible_combination) %> |
+<%= link_to 'Back', dispensible_combinations_path %>

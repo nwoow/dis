@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Generics</h1>
+
+<table id="example" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%" >
+  <thead>
+    <tr>
+      <th>Generic name</th>
+      <th>Combination</th>
+      <th>Essential</th>
+      <th>Generic Type</th>
+      <th>Schedule</th>
+      <th>Preg Category</th>
+      <th>Food Intake</th>
+      <th>Rxcui</th>
+      <th>Data Source</th>
+      <th>Status</th>
+      <th> Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @generics.each do |generic| %>
+      <tr>
+        <td><%= generic.generic_name %></td>
+        <td><%= generic.is_combination %></td>
+        <td><%= generic.is_essential %></td>
+        <td><%= generic.generic_type_id %></td>
+        <td><%= NfiSchedule.where("id = ?", generic.schedule_id).pluck(:schedule_name).first %> </td>
+        <td><%= NfiPregnancyCategory.where("id=?", generic.preg_category_id).pluck(:preg_category_name).first %></td>
+        <td><%= FoodIntake.where("id = ?", generic.food_intake_id).pluck(:food_intake_name).first %></td>
+        <td><%= generic.rxcui %></td>
+        <td><%= DataSource.where("id = ?",generic.data_source_id).pluck(:data_source_name).first  %></td>
+        <td><%= generic.status %></td>
+        <td><%= link_to 'Show', generic %>,<%= link_to 'Edit', edit_generic_path(generic) %>,<%= link_to 'Destroy', generic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New', new_generic_path %>

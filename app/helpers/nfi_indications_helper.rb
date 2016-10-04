@@ -1,0 +1,2 @@
+module NfiIndicationsHelper
+end

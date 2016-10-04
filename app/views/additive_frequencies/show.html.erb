@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<div class="col-md-8">
+ <div class="panel panel-default">
+      <div class="panel-body">
+      <div class="col-md-4">
+       <ul class="list-group">
+	    <li class="list-group-item"> frequency_id:&nbsp;&nbsp;<%= @additive_frequency.id %>  </li>
+	    <li class="list-group-item"> display_text:&nbsp;&nbsp; <%= @additive_frequency.display_text %> </li>  
+	    <li class="list-group-item"> description: <%= raw(@additive_frequency.description) %></li>  
+       </ul>
+      </div>
+
+</div>
+
+
+    
+  </div>
+  <%= link_to 'Edit', edit_additive_frequency_path(@additive_frequency) %> |
+<%= link_to 'Back', additive_frequencies_path %>
+ 
+ </div>

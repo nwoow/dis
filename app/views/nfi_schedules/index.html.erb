@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Nfi Schedules</h1>
+
+<table id="example" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Schedule name</th>
+      <th>Description</th>
+      <th>Data source</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nfi_schedules.each do |nfi_schedule| %>
+      <tr>
+
+        <td><%= nfi_schedule.schedule_name %></td>
+        <td><%= nfi_schedule.description %></td>
+        <td><%= DataSource.where("id = ?",nfi_schedule.data_source_id).pluck(:data_source_name).first  %></td>
+        <td><%= nfi_schedule.status %></td>
+        <td><%= link_to 'Show', nfi_schedule %>,<%= link_to 'Edit', edit_nfi_schedule_path(nfi_schedule) %>,<%= link_to 'Destroy', nfi_schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New', new_nfi_schedule_path %>

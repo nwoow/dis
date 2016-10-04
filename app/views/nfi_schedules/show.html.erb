@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Schedule:</strong>
+  <%= @nfi_schedule.id %>
+</p>
+
+<p>
+  <strong>Schedule name:</strong>
+  <%= @nfi_schedule.schedule_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @nfi_schedule.description %>
+</p>
+
+<p>
+  <strong>Data source data source:</strong>
+  <%=DataSource.where("id = ?", @nfi_schedule.data_source_id ).pluck(:data_source_name).first %>
+
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @nfi_schedule.status %>
+</p>
+
+<%= link_to 'Edit', edit_nfi_schedule_path(@nfi_schedule) %> |
+<%= link_to 'Back', nfi_schedules_path %>

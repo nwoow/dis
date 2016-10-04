@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ID:</strong>
+  <%= @dose_period.id %>
+</p>
+
+<p>
+  <strong>Dose Period:</strong>
+  <%= @dose_period.dose_period_name %>
+</p>
+
+<p>
+  <strong>Abbreviation:</strong>
+  <%= @dose_period.dose_period_abbr %>
+</p>
+
+<p>
+  <strong>Data Source:</strong>
+  <%= DataSource.where("id = ?", @dose_period.data_source_id).pluck(:data_source_name).first %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @dose_period.status %>
+</p>
+
+<%= link_to 'Edit', edit_dose_period_path(@dose_period) %> |
+<%= link_to 'Back', dose_periods_path %>

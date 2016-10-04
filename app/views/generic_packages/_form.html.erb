@@ -1,0 +1,21 @@
+<%= simple_form_for(@generic_package) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :brand_name_id , error: "brand_name_id is mandatory"%>
+    <%= f.input :manufacturer_id , error: "manufacturer_id is mandatory"%>
+    <%= f.input :dispensible_generic_id , error: "dispensible_generic_id is mandatory"%>
+    <%= f.input :package_qty , error: "package_qty is mandatory"%>
+    <%= f.input :package_type_id , error: "package_type_id is mandatory"%>
+    <%= f.input :price , error: "price is mandatory"%>
+    <%= f.input :generic_package_text , error: "generic_package_text is mandatory"%>
+    <%= f.input :data_source_id, label: 'Data Source', error: 'Please select a data source' do %>
+      <%= f.select :data_source_id, DataSource.all.map { |r| [r.data_source_name, r.id, { class: "form-control" }] }, {include_blank: false},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+    <%= f.input :status , error: "status is mandatory"%>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+<%= simple_form_for(@doseform_doseunit) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :doseform_id, label: 'Dose Form', error: 'Please select a dose form' do%>
+      <%= f.select :doseform_id, DoseForm.all.map { |r| [r.doseform_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+    <%= f.input :doseunit_id, label: 'Dose Unit', error: 'Please select a dose unit' do %>
+      <%= f.select :doseunit_id, Doseunit.all.map { |r| [r.doseunit_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+    <%= f.input :is_default, label: 'Is Default', error: 'Please mark if this is default' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Save" %>
+  </div>
+<% end %>

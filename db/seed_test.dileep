@@ -1,0 +1,92 @@
+additive_frequencies.create(display_text: 'QBAG', data_source_id: 2, status: 0, description: 'With every bag')
+additive_frequencies.create(display_text: 'Q2BAG', data_source_id: 2, status: 0, description: 'With every alternate bag')
+additive_frequencies.create(display_text: 'Q3BAG', data_source_id: 2, status: 0, description: 'With every 3rd bag')
+additive_frequencies.create(display_text: 'Q4BAG', data_source_id: 2, status: 0, description: 'With every 4th bag')
+additive_frequencies.create(display_text: 'Q5BAG', data_source_id: 2, status: 0, description: 'With every 5th bag')
+additive_frequencies.create(display_text: 'Q6BAG', data_source_id: 2, status: 0, description: 'With every 6th bag')
+additive_frequencies.create(display_text: 'QDAY', data_source_id: 2, status: 0, description: 'Every day')
+
+
+alcohol_interactions.create(generic_id: 1, alcohol_interaction_type_id: 1, data_source_id: 1, status: 0)
+alcohol_interactions.create(generic_id: 2, alcohol_interaction_type_id: 2, data_source_id: 2, status: 0)
+
+alcohol_interaction_types.create(alcohol_interaction_type_name: 'Do not use', alcohol_interaction_type_text: 'Drugs not to be used with alcohol', data_source_id: 1, status: 0)
+alcohol_interaction_types.create(alcohol_interaction_type_name: 'Avoid', alcohol_interaction_type_text: 'Drugs to be avoided with alcohol', data_source_id: 1, status: 0)
+
+
+brand_names.create(brand_name: 'Crocin', generic_id: 5, data_source_id: 1, status: 0)
+brand_names.create(brand_name: 'Brand 2', generic_id: 2, data_source_id: 3, status: 0)
+
+
+contraceptive_interactions.create(generic_id: 2, contraceptive_interaction_text:  'Accelerated metabolism of medroxyprogesterone (does not apply to injectable medroxyprogesterone acetate for contraception); reduced contraceptive effect (does not apply to injectable norethisterone enantate for contraception)', data_source_id: 1, status: 0)
+ontraceptive_interactions.create(generic_id: 3, contraceptive_interaction_text:  'Antagonism of antidepressant effect but adverse effects increased due to increased plasma concentration of amitriptyline', data_source_id: 1, status: 0)
+
+data_sources.create(data_source_name: 'NFI 2011', status:0)
+data_sources.create(data_source_name: 'old ddb', status:0)
+data_sources.create(data_source_name: 'Others', status:0)
+data_sources.create(data_source_name: 'Junk Data', status:0)
+
+
+dispensible_combinations.create(ombination_text: NULL, generic_id: 3, doseform_id: 3, route_id: 1, dispensible_combination_text: 'This needs to be created from the other entries', data_source_id: 4, status: 0)
+dispensible_combinations.create(ombination_text: NULL, generic_id: 4, doseform_id: 2, route_id: 2, dispensible_combination_text: 'Text to be created', data_source_id: 4, status: 0)
+
+dispensible_generics.create(generic_id: 2, route_id: 1, doseform_id: 2, generic_strength: 50, doseunit_id: 3, dispensible_qty: 5, dispensible_generic_text: 'Display text to be created', data_source_id: 4, status: 0)
+dispensible_generics.create(generic_id: 2, route_id: 1, doseform_id: 1, generic_strength: 500, doseunit_id: 1, dispensible_qty: 1, dispensible_generic_text: 'text to be created', data_source_id: 4, status: 0)
+
+doseform_doseunits.create(doseform_id: 1, doseunit_id: 2, is_default: 1)
+
+doseunits.create(doseunit_name: 'Tablet', doseunit_abbr: 'Tab', data_source_id: 2, status: 0)
+doseunits.create(doseunit_name: 'Capsule', doseunit_abbr: 'Cap', data_source_id: 2, status: 0)
+doseunits.create(doseunit_name: 'Milligram', doseunit_abbr: 'mg', data_source_id: 2, status: 0)
+doseunits.create(doseunit_name: 'Millilitre', doseunit_abbr: 'ml', data_source_id: 2, status: 0)
+
+dose_forms.create(doseform_name: 'Capsule', doseform_abbr: 'Cap', data_source_id: 2, status: NULL)
+dose_forms.create(doseform_name: 'Emulsion',  doseform_abbr: 'Emul', data_source_id: 2, status: NULL)
+dose_forms.create(doseform_name: 'Foam', doseform_abbr: 'Foam', data_source_id: 2, status: NULL)
+dose_forms.create(doseform_name: 'Flake', doseform_abbr: 'Flake', data_source_id: 2, status: NULL)
+
+dose_periods.create(dose_period_name: '12 times per day', dose_period_abbr: '12xd', data_source_id: 2, status: 0)
+dose_periods.create(dose_period_name: 'Every 1 to 2 hours', dose_period_abbr: 'q1-2h',data_source_id: 2, status: 0)
+dose_periods.create(dose_period_name: 'Every 3 days', dose_period_abbr: 'q3d', data_source_id: 2, status: 0)
+dose_periods.create(dose_period_name: '3 times per day', dose_period_abbr: '3xd', data_source_id: 2, status: 0)
+
+drug_interactions.create(first_generic_id: 2, drug_interaction_text: 'test', data_source_id: 4, status: 0, second_generic_id: 4)
+drug_interactions.create(first_generic_id: 3,drug_interaction_text: 'Testing drug interactions', data_source_id: 4, status: 0, second_generic_id: 5)
+
+food_intakes.create(status: 0, name: 'Before food')
+food_intakes.create(status: 0, name: 'With food')
+food_intakes.create(status: 0, name: 'After food')
+
+generics.create(generic_name: 'Acetylsalicylic Acid', is_essential: 1, generic_type_id: NULL, schedule_id: NULL, preg_category_id: 1, food_intake_id: NULL, rxcui: NULL, data_source_id: 1, status: 0, is_combination: 0)
+generics.create(generic_name: 'Diclofenac', is_essential: 0, generic_type_id: NULL, schedule_id: 1, preg_category_id: 2, food_intake_id: NULL, rxcui: NULL, data_source_id: 1, status: 0, is_combination: 0),
+generics.create(generic_name: 'Ibuprofen', is_essential: 1, generic_type_id: NULL, schedule_id: 1, preg_category_id: 3, food_intake_id: NULL, rxcui: NULL, data_source_id: 1, status: 0, is_combination: 0),
+generics.create(generic_name: 'Mefenamic Acid', is_essential: 0, generic_type_id: NULL, schedule_id: NULL, preg_category_id: 3, food_intake_id: NULL, rxcui: NULL, data_source_id: 1, status: 0, is_combination: 0),
+generics.create(generic_name: 'Paracetamol', is_essential: 1, generic_type_id: NULL, schedule_id: NULL, preg_category_id: 2, food_intake_id: NULL, rxcui: NULL, data_source_id: 1, status: 0, is_combination: 0);
+
+
+INSERT INTO `generic_monographs` (`id`, `generic_id`, `dose_monograph`, `contraindication_monograph`, `precaution_monograph`, `adverseeffect_monograph`, `storage_monograph`, `data_source_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Oral\r\nAdult- Analgesic and antipyretic including migraine attacks: 0.3 to 0.9g, 3 to 4 times a day (max. 4g daily). Acute Rheumatic fever: 4 to 6g or 75 to 100 mg/kg daily in divided doses. Antiplatelet: 75-325 mg/day .\r\nChild- Under 16 years: not recommended (can cause Reye’s syndrome).', 'Hypersensitivity (including asthma; angioedema; urticaria or rhinitis) to acetylsalicylic acid or any other NSAID; children and adolescents under 16 years (may cause Reye’s syndrome); gastrointestinal ulceration; haemophilia and other bleeding disorders; not for treatment of gout; severe renal or hepatic impairment; lactation. It is known to cause haemolytic anaemia in people who have the genetic disease- G-6-PD-deficiency.', 'Asthma, allergic disease; impaired renal or hepatic function (Appendices 7d and 7a); lactation (Appendix 7b); pregnancy (Appendix 7c); elderly; G-6-PD-deficiency; dehydration; interactions (Appendix 6a, 6c, 6d).', 'Generally mild and infrequent for lower doses, but common with anti-inflammatory doses; gastrointestinal discomfort or nausea, ulceration with occult bleeding (occasionally major haemorrhage); also other haemorrhage (including subconjunctival); hearing disturbances such as tinnitus (rarely, deafness); vertigo; confusion; hypersensitivity reactions (angioedema; bronchospasm and rash); increased bleeding time, blood disorders (particularly thrombocytopenia); rarely, oedema; myocarditis; Reye’s syndrome.\r\n', 'Store protected from moisture at a temperature not exceeding 300C.', 1, 0, '2016-04-10 10:03:30', '2016-04-10 10:03:30');
+
+
+INSERT INTO `ingredients` (`id`, `ingredient_name`, `data_source_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Ingredient 1', 2, 0, '2016-04-08 17:46:49', '2016-04-08 17:46:49');
+
+
+INSERT INTO `nfi_pregnancy_categories` (`id`, `preg_category_name`, `preg_category_description`, `data_source_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'D', 'Pregnancy Category-D', 1, 1, '2016-04-08 14:10:47', '2016-04-08 14:10:47'),
+(2, 'B', 'Pregnancy Category-B', 1, 1, '2016-04-08 14:13:10', '2016-04-08 14:13:10'),
+(3, 'C', 'Pregnancy Category-C', 1, 1, '2016-04-08 14:15:41', '2016-04-08 14:15:41');
+
+
+INSERT INTO `nfi_schedules` (`id`, `schedule_name`, `description`, `data_source_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'H', 'Schedule H', 1, 0, '2016-04-08 14:13:45', '2016-04-08 14:13:45');
+
+
+INSERT INTO `routes` (`id`, `route_name`, `route_abbr`, `route_description`, `data_source_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Nasal', 'Nasl', 'Through Nose', 2, 0, '2016-04-10 06:07:27', '2016-04-10 06:07:27'),
+(2, 'Oral', 'Oral', 'Through mouth', 2, 0, '2016-04-10 06:07:51', '2016-04-10 06:07:51'),
+(3, 'Intravenous', 'IV', 'Drip through veins', 2, 0, '2016-04-10 06:08:35', '2016-04-10 06:08:35');
+
+
+INSERT INTO `users` (`id`, `email`, `encrypted_password`, `reset_password_token`, `reset_password_sent_at`, `remember_created_at`, `sign_in_count`, `current_sign_in_at`, `last_sign_in_at`, `current_sign_in_ip`, `last_sign_in_ip`, `created_at`, `updated_at`, `user_role`) VALUES
+(1, 'dileep@gmail.com', '$2a$10$Tb5TyL6uB6J7owJyOnxmleE1kS2G5gRX/SRzMBqHf9oZF.8Y7vqrS', NULL, NULL, '2016-04-08 13:53:37', 8, '2016-04-11 07:17:46', '2016-04-11 04:23:10', '127.0.0.1', '127.0.0.1', '2016-04-08 05:36:41', '2016-04-11 07:17:46', NULL);

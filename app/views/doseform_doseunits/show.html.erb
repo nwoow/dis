@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ID:</strong>
+  <%= @doseform_doseunit.doseform_id %>
+</p>
+<p>
+  <strong>Dose Form:</strong>
+  <%= DoseForm.where("id = ?", @doseform_doseunit.doseform_id).pluck(:doseform_name).first %>
+</p>
+<p>
+  <strong>Dose Unit:</strong>
+  <%= Doseunit.where("id = ?", @doseform_doseunit.doseunit_id).pluck(:doseunit_name).first %>
+</p>
+<p>
+  <strong>Is default:</strong>
+  <%= @doseform_doseunit.is_default %>
+</p>
+
+<%= link_to 'Edit', edit_doseform_doseunit_path(@doseform_doseunit) %> |
+<%= link_to 'Back', doseform_doseunits_path %>

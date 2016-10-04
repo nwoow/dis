@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dose Periods</h1>
+
+<table id="example" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <!-- <th>id</th> -->
+      <th>Dose Period</th>
+      <th>Abbreviation</th>
+      <th>Data Source</th>
+      <th>Active Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dose_periods.each do |dose_period| %>
+      <tr>
+        <!-- <td><%= dose_period.id %></td> -->
+        <td><%= dose_period.dose_period_name %></td>
+        <td><%= dose_period.dose_period_abbr %></td>
+        <td><%= DataSource.where("id = ?", dose_period.data_source_id).pluck(:data_source_name).first %></td>
+        <td><%= dose_period.status %></td>
+        <td><%= link_to 'Show', dose_period %></td>
+        <td><%= link_to 'Edit', edit_dose_period_path(dose_period) %></td>
+        <td><%= link_to 'Destroy', dose_period, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New', new_dose_period_path %>

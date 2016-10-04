@@ -1,0 +1,28 @@
+<%= simple_form_for(@generic_package_ingredient) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+
+    <%= f.input :generic_package_id, label:"Generic Package ", error: "Please select a generic package" do %>
+      <%= f.select :generic_package_id, GenericPackage.all.map { |r| [r.generic_package_text, r.id, {class: "form-control"}] }, {include_blank: true}, {:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+    <%= f.input :ingredient_id , label: "Ingredient", error: "Plesae select an ingredient" do %>
+      <%= f.select :ingredient_id, Ingredient.all.map { |r| [r.ingredient_name, r.id, {class: "form-control"}] }, {include_blank: true}, {:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+
+    <%= f.input :ingredient_qty , label: "Quantity", error: "Please enter the ingredient qty" %>
+    <%= f.input :doseunit_id , label: "Unit", error: "Plesae select a doseunit" do %>
+      <%= f.select :doseunit_id, Doseunit.all.map { |r| [r.doseunit_name, r.id, {class: "form-control"}] }, {include_blank: true}, {:class => 'form-control js-example-basic-multiple'} %>
+    <% end %>
+
+    <%= f.input :data_source_id , label: "Data Source", error: "Plesae select a data source" do %>
+      <%= f.select :data_source_id, DataSource.all.map { |r| [r.data_source_name, r.id, { class: "form-control" }] }, {include_blank: true},{:class => 'form-control js-example-basic-multiple'} %>
+
+    <% end %>
+    <!-- <%= f.input :status %> -->
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Save" %>
+  </div>
+<% end %>

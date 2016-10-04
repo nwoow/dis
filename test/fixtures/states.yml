@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  state_name: MyString
+  state_HASC_code: MyString
+  country_alpha2_code: MyString
+
+two:
+  state_name: MyString
+  state_HASC_code: MyString
+  country_alpha2_code: MyString

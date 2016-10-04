@@ -1,0 +1,2 @@
+module DispensibleGenericsHelper
+end

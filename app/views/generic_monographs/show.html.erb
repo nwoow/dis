@@ -1,0 +1,47 @@
+<p>
+  <strong>ID:</strong>
+  <%= @generic_monograph.id %>
+</p>
+
+<p>
+  <strong>Generics generic:</strong>
+  <%= Generic.where("id + ?", @generic_monograph.generic_id).pluck(:generic_name).first %>
+</p>
+
+<p>
+  <strong>Dose monograph:</strong>
+  <%= @generic_monograph.dose_monograph %>
+</p>
+
+<p>
+  <strong>Contraindication monograph:</strong>
+  <%= @generic_monograph.contraindication_monograph %>
+</p>
+
+<p>
+  <strong>Precaution monograph:</strong>
+  <%= @generic_monograph.precaution_monograph %>
+</p>
+
+<p>
+  <strong>Adverseeffect monograph:</strong>
+  <%= @generic_monograph.adverseeffect_monograph %>
+</p>
+
+<p>
+  <strong>Storage monograph:</strong>
+  <%= @generic_monograph.storage_monograph %>
+</p>
+
+<p>
+  <strong>Data source data source:</strong>
+  <%=DataSource.where("id = ?", @generic_monograph.data_source_id).pluck(:data_source_name).first %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @generic_monograph.status %>
+</p>
+
+<%= link_to 'Edit', edit_generic_monograph_path(@generic_monograph) %> |
+<%= link_to 'Back', generic_monographs_path %>

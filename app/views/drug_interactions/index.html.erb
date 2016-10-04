@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Drug Interactions</h1>
+
+<table id="example" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>First Generic</th>
+      <th>Second Generic</th>
+      <th>Drug Interaction Text</th>
+      <th>Data Source</th>
+      <th>Status</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @drug_interactions.each do |drug_interaction| %>
+      <tr>
+        <td><%= Generic.where("id = ?", drug_interaction.first_generic_id).pluck(:generic_name).first %></td>
+        <td><%= Generic.where("id = ?", drug_interaction.second_generic_id).pluck(:generic_name).first %></td>
+        <td><%= drug_interaction.drug_interaction_text %></td>
+        <td><%= DataSource.where("id = ?", drug_interaction.data_source_id).pluck(:data_source_name).first  %></td>
+        <td><%= drug_interaction.status %></td>
+        <td><%= drug_interaction.created_at %></td>
+        <td><%= drug_interaction.updated_at %></td>
+        <td><%= link_to 'Show', drug_interaction %>,<%= link_to 'Edit', edit_drug_interaction_path(drug_interaction) %>,<%= link_to 'Destroy', drug_interaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New', new_drug_interaction_path %>

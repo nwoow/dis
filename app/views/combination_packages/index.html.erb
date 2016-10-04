@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Combination Packages</h1>
+
+<table id="example" class="table table-bordered table-hover table-striped datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <!-- <th>id</th> -->
+      <th>Brand Name</th>
+      <th>Manufacturer</th>
+      <th>Dispensible Combination</th>
+      <th>Combination</th>
+      <th>Package Qty</th>
+      <th>Package Type</th>
+      <th>Price</th>
+      <th>Combination Package</th>
+      <th>Data Sourced</th>
+      <th>Active Status</th>
+
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @combination_packages.each do |combination_package| %>
+      <tr>
+      <!-- <td><%= combination_package.id%></td> -->
+        <td><%= combination_package.brand_name_id%></td>
+         <td><%= combination_package.manufacturer_manufacturer_id%></td>
+         <td><%= combination_package.dispensible_combination_id%></td>
+         <td><%= combination_package.combination_text%></td>
+         <td><%= combination_package.package_qty%></td>
+         <td><%= combination_package.package_type_id%></td>
+          <td><%= combination_package.price%></td>
+            <td><%= combination_package.combination_package_text%></td>
+          <td><%= combination_package.data_source_id%></td>
+         <td><%= combination_package.status%></td>
+
+        <td><center><%= link_to 'Show', combination_package %>,<%= link_to 'Edit', edit_combination_package_path(combination_package) %>,<%= link_to 'Destroy', combination_package, method: :delete, data: { confirm: 'Are you sure?' } %></center></td>
+
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+
+
+<%= link_to 'Add New', new_combination_package_path %>

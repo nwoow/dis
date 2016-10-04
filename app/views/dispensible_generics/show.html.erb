@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ID:</strong>
+  <%= @dispensible_generic.id %>
+</p>
+<p>
+  <strong>Generic:</strong>
+  <%= Generic.where("id = ?", @dispensible_generic.generic_id).pluck(:generic_name).first %>
+</p>
+<p>
+  <strong>Route:</strong>
+  <%= Route.where("id = ?", @dispensible_generic.route_id).pluck(:route_name).first %>
+</p>
+
+<p>
+  <strong>Doseform:</strong>
+  <%= DoseForm.where("id = ?", @dispensible_generic.doseform_id).pluck(:doseform_name).first %>
+</p>
+
+<p>
+  <strong>Generic Strength:</strong>
+  <%= @dispensible_generic.generic_strength %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= Doseunit.where("id = ?", @dispensible_generic.doseunit_id).pluck(:doseunit_name).first %>
+</p>
+
+<p>
+  <strong>Dispensible Qty:</strong>
+  <%= @dispensible_generic.dispensible_qty %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= Doseunit.where("id = ?", @dispensible_generic.doseunit_id).pluck(:doseunit_name).first %>
+</p>
+
+<p>
+  <strong>Display Text:</strong>
+  <%= @dispensible_generic.dispensible_generic_text %>
+</p>
+
+<p>
+  <strong>Data Source:</strong>
+  <%= DataSource.where("id = ?", @dispensible_generic.data_source_id).pluck(:data_source_name).first %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @dispensible_generic.status %>
+</p>
+
+<%= link_to 'Edit', edit_dispensible_generic_path(@dispensible_generic) %> |
+<%= link_to 'Back', dispensible_generics_path %>
